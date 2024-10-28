@@ -1,9 +1,7 @@
 package com.example.ultimateiptvplayer.Activities;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.net.http.HttpResponseCache;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,7 +14,6 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.media3.datasource.HttpUtil;
 
 import com.example.ultimateiptvplayer.Entities.Channels.Channel;
 import com.example.ultimateiptvplayer.Entities.Download.UrlChecker;
@@ -36,16 +33,11 @@ import com.example.ultimateiptvplayer.Enum.QUALITY;
 import com.example.ultimateiptvplayer.R;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TreeMap;
-import java.net.*;
 import java.util.concurrent.ExecutionException;
 
-import javax.net.ssl.HttpsURLConnection;
 
 public class NavigationActivity extends AppCompatActivity implements OnCategoriesListener, OnChannelListener, OnFullScreenListener, OnResetPlaylistListener, OnQualityListener {
     private PlaylistsManager playlistManager;
@@ -53,8 +45,6 @@ public class NavigationActivity extends AppCompatActivity implements OnCategorie
     private ChannelsFragment channelsFragment;
 
     private PlayerFragment playerFragment_viewer;
-    private Context context;
-
 
     private String currentCategory;
     private Channel currentChannel;
@@ -66,7 +56,6 @@ public class NavigationActivity extends AppCompatActivity implements OnCategorie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
-        this.context = getApplicationContext();
 
         // Create the playlist manager
         playlistManager = PlaylistsManager.getInstance(getApplicationContext());
@@ -90,10 +79,8 @@ public class NavigationActivity extends AppCompatActivity implements OnCategorie
             @Override
             public void handleOnBackPressed() {
                 if(playerInFullScreen){
-                    System.out.println("BACK TO NORMAL SCREEN");
                     setFullScreen(false);
                 }else{
-                    System.out.println("BACK TO QUALITY FRAGMENT");
                     backToQualityFragment();
                 }
             }
@@ -113,7 +100,6 @@ public class NavigationActivity extends AppCompatActivity implements OnCategorie
 
     /**
      * Method to build the TreeMap of channels by quality
-     * @return TreeMap of channels by quality
      */
     private void buildChannelsByQuality(){
         TreeMap<QUALITY, ArrayList<Channel>> channelsByQuality = new TreeMap<>();
@@ -143,7 +129,7 @@ public class NavigationActivity extends AppCompatActivity implements OnCategorie
 
     /**
      * Method to handle the click on a channel
-     * @param position
+     * @param position the position of the channel clicked in the list
      */
     @Override
     public void onChannelClick(int position) throws IOException, ExecutionException, InterruptedException {
@@ -242,8 +228,6 @@ public class NavigationActivity extends AppCompatActivity implements OnCategorie
 
     @Override
     public void setFullScreen(boolean isFullScreen) {
-        System.out.println("onFullScreen");
-        System.out.println("fullscreen option : " + isFullScreen);
         playerInFullScreen = isFullScreen;
         FrameLayout player_fragment_viewer = findViewById(R.id.player_fragment_viewer);
         if(initparams == null){

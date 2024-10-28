@@ -1,7 +1,6 @@
 package com.example.ultimateiptvplayer.Fragments.Channels;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.concurrent.ExecutionException;
 
 public interface OnChannelListener {

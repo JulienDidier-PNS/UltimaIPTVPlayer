@@ -17,9 +17,7 @@ import com.bumptech.glide.Glide;
 import com.example.ultimateiptvplayer.Entities.Channels.Channel;
 import com.example.ultimateiptvplayer.R;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 
 public class ChannelsFragment extends Fragment {
 

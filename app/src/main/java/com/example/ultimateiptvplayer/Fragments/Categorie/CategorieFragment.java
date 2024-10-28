@@ -17,6 +17,7 @@ import com.example.ultimateiptvplayer.Enum.LANGAGES;
 import com.example.ultimateiptvplayer.Entities.Channels.Channel;
 import com.example.ultimateiptvplayer.Adapter.CategoryAdapter;
 import com.example.ultimateiptvplayer.Entities.Playlist.Playlist;
+import com.example.ultimateiptvplayer.Fragments.Player.AmbilightManager;
 import com.example.ultimateiptvplayer.R;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class CategorieFragment extends Fragment {
     private ListView categorieLV;
     private Spinner langageFilter;
     private final Playlist playlist;
-    private OnCategoriesListener onCategoriesListener;
+    private final OnCategoriesListener onCategoriesListener;
 
     private String currentCategory;
     private int currentCategoryPosition = -1;

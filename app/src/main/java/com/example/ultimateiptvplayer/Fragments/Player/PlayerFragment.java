@@ -35,6 +35,7 @@ public class PlayerFragment extends Fragment {
     private ExoPlayer player;
     private String currentChannelUrl;
     private boolean inFullScreen = false;
+    private AmbilightManager ambilightManager;
 
     public PlayerFragment(Context context,OnFullScreenListener fcListener) {
         this.context = context;

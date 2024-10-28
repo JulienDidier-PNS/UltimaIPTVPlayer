@@ -4,13 +4,10 @@ import com.example.ultimateiptvplayer.Entities.Playlist.Playlist;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
